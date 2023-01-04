@@ -9,6 +9,8 @@ const useList = () => {
 
 	return {
 		listVehicles: computed(() => store.state.vehicles),
+		tokenId: computed(() => store.state.idToken),
+		pid: computed(() => store.state.pid),
 	};
 };
 

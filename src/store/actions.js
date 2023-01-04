@@ -17,9 +17,8 @@ export const login = async ({ commit }) => {
 		commit('getLogin', '');
 		return auth;
 	}
-
 	auth = true;
-	commit('getLogin', data.token);
+	commit('getLogin', data);
 	return auth;
 };
 
@@ -75,9 +74,12 @@ export const getDeviceAlarms = async ({ commit, state }, id) => {
 };
 
 export const checkLogin = ({ commit }) => {
-	const tokenId = localStorage.getItem('tokenId');
+	const data = {
+		token: localStorage.getItem('tokenId'),
+		pid: localStorage.getItem('pid'),
+	};
 
-	if (tokenId) {
-		commit('getLogin', tokenId);
+	if (data.token) {
+		commit('getLogin', data);
 	}
 };

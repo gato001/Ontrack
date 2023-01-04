@@ -1,6 +1,8 @@
-export const getLogin = (state, tokenId) => {
-	localStorage.setItem('tokenId', tokenId);
-	state.idToken = tokenId;
+export const getLogin = (state, { pid, token }) => {
+	localStorage.setItem('tokenId', token);
+	localStorage.setItem('pid', pid);
+	state.idToken = token;
+	state.pid = pid;
 };
 
 export const setData = (state, dataList) => {
